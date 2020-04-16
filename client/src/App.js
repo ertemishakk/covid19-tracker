@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import store from './store'
-import { Provider } from 'react-redux'
 import MainPage from './Components/MainPage';
+import { getGlobalData } from './actions/getData'
+import { connect } from 'react-redux'
 
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getGlobalData()
+  }
 
   render() {
     return (
-      <Provider store={store}>
-        <div className="App" >
-          <MainPage />
-        </div>
-      </Provider>
+      <div className="App" >
+        <MainPage />
+      </div>
+
 
     )
   }
 }
+const mapStateToProps = state => ({
+  data: state.data
+})
 
 
-
-export default App
+export default connect(mapStateToProps, { getGlobalData })(App)

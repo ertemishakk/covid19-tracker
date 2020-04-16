@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 app.use(express.json({ extended: false }))
+app.use(cors())
 
 
 if (process.env.NODE_ENV === 'production') {

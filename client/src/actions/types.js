@@ -1,0 +1,1 @@
+export const GET_GLOBAL_DATA = 'GET_GLOBAL_DATA'

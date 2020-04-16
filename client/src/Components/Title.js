@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Row, Col, Container } from 'reactstrap'
-import Flip from 'react-reveal/Flip';
-import { connect } from 'react-redux'
+import { Row, Col } from 'reactstrap'
+// import Flip from 'react-reveal/Flip';
+import moment from 'moment'
 
 class Title extends Component {
 
     render() {
-
+        let date = new Date()
         return (
             <div>
                 <Row className='text-dark'>
@@ -17,6 +17,7 @@ class Title extends Component {
                             </span>VID-19
 
                              </h1>
+                        <h3 className='text-center'>{moment(date).format('MMMM Do YYYY')}</h3>
                     </Col>
                 </Row>
 
@@ -25,9 +26,5 @@ class Title extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    data: state.data
-})
 
-
-export default connect(mapStateToProps)(Title)
+export default Title

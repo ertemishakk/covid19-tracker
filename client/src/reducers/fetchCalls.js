@@ -1,17 +1,15 @@
-import { } from '../actions/types'
+import { GET_GLOBAL_DATA } from '../actions/types'
 
 const initialState = {
-
+    globalData: []
 }
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        // case GET_RESTAURANT_DATA:
-        //     return {
-        //         ...state,
-        //         restaurantData: action.payload[0].restaurant_info,
-        //         menuData: action.payload[0].menu_info
-        //     }
+        case GET_GLOBAL_DATA:
+            return {
+                globalData: action.payload
+            }
 
 
         default: return state;
