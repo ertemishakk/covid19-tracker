@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+body{
+  font-family: 'Baloo Chettan 2', cursive !important;
+}
+
+.fa-virus{
+  color:rgb(52, 206, 211)
+}
