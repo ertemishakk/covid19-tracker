@@ -1,14 +1,52 @@
-import { GET_GLOBAL_DATA } from '../actions/types'
+import { GET_GLOBAL_DATA, GLOBAL_DATA_LOADING, UPDATE_DATA, DAILY_DATA_RECEIVED, DAILY_DATA_LOADING } from '../actions/types'
 
 const initialState = {
-    globalData: []
+    globalData: [],
+    globalDataLoading: false,
+    countries: [],
+    dailyDataLoading: false,
+    dailyData: [],
+    from: 'global'
 }
 
 export default function (state = initialState, action) {
     switch (action.type) {
         case GET_GLOBAL_DATA:
             return {
-                globalData: action.payload
+                ...state,
+                from: 'global',
+                globalData: [action.payload.Global],
+                countries: action.payload.Countries,
+                globalDataLoading: false,
+            }
+        case GLOBAL_DATA_LOADING:
+            return {
+                ...state,
+                globalDataLoading: true
+            }
+        case UPDATE_DATA:
+
+            for (let i = 0; i < state.countries.length; i++) {
+                if (state.countries[i].Country === action.payload) {
+                    return {
+                        ...state,
+                        from: action.payload,
+                        globalData: [state.countries[i]],
+                        globalDataLoading: false
+
+                    }
+                }
+            }
+        case DAILY_DATA_LOADING:
+            return {
+                ...state,
+                dailyDataLoading: true
+            }
+        case DAILY_DATA_RECEIVED:
+            return {
+                ...state,
+                dailyData: action.payload,
+                dailyDataLoading: false
             }
 
 

@@ -10,58 +10,61 @@ class Cards extends Component {
 
     render() {
         let date = new Date()
+
         return (
             <div>
-                <Row className='pt-4' style={{ paddingRight: '10%', paddingLeft: '10%' }}>
-                    <Col md='4'>
+                <Row className='pt-4' style={{ paddingRight: '15%', paddingLeft: '15%' }}>
+                    <Col lg='4'>
 
-                        <Card style={{ borderBottomColor: 'rgb(217, 83, 79)', borderBottomWidth: 5 }}>
+                        <Card style={{ borderBottomColor: 'rgb(217, 83, 79)', borderBottomWidth: 5, height: '200px' }}>
                             <CardBody>
-                                <CardTitle className='text-muted h4'>Infected</CardTitle>
+                                <CardTitle className='text-muted h5'>Infected</CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
-                                        (<Spinner />) : (
-                                            <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_cases} separator=',' />
-                                        )}
+                                    {
+                                        this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
+                                            (<Spinner />) : (
+
+                                                <CountUp start={0}
+                                                    end={this.props.data.globalData[0].TotalConfirmed} separator=',' />
+                                            )}
                                 </CardSubtitle>
-                                <CardText>Number of active cases of COVID-19.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Number of active cases of COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
 
                     </Col>
-                    <Col md='4'>
+                    <Col lg='4'>
 
-                        <Card style={{ borderBottomColor: 'rgb(92, 184, 92)', borderBottomWidth: 5 }}>
+                        <Card style={{ borderBottomColor: 'rgb(92, 184, 92)', borderBottomWidth: 5, height: '200px' }}>
                             <CardBody>
-                                <CardTitle className='text-muted h4'>Recovered</CardTitle>
+                                <CardTitle className='text-muted h5'>Recovered</CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
+                                    {this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
                                         (<Spinner />) : (
                                             <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_recovered} separator=',' />
+                                                end={this.props.data.globalData[0].TotalRecovered} separator=',' />
                                         )}
                                 </CardSubtitle>
-                                <CardText>Number of recoveries from COVID-19.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Number of recoveries from COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
 
                     </Col>
-                    <Col md='4'>
+                    <Col lg='4'>
 
-                        <Card style={{ borderBottomColor: 'rgb(41, 43, 44)', borderBottomWidth: 5 }}>
+                        <Card style={{ borderBottomColor: 'rgb(41, 43, 44)', borderBottomWidth: 5, height: '200px' }}>
                             <CardBody>
-                                <CardTitle className='text-muted h4'>Deaths</CardTitle>
+                                <CardTitle className='text-muted h5'>Deaths</CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
+                                    {this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
                                         (<Spinner />) : (
                                             <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_deaths} separator=',' />
+                                                end={this.props.data.globalData[0].TotalDeaths} separator=',' />
                                         )}
                                 </CardSubtitle>
-                                <CardText>Number of deaths caused by COVID-19.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Number of deaths caused by COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
@@ -69,58 +72,58 @@ class Cards extends Component {
                     </Col>
                 </Row>
 
-                <Row className='pt-4' style={{ paddingRight: '10%', paddingLeft: '10%' }}>
-                    <Col md='4'>
+                <Row className='pt-4' style={{ paddingRight: '15%', paddingLeft: '15%' }}>
+                    <Col lg='4'>
 
-                        <Card style={{ borderBottomColor: 'rgb(2, 117, 216)', borderBottomWidth: 5 }}>
+                        <Card style={{ borderBottomColor: 'rgb(2, 117, 216)', borderBottomWidth: 5, height: '200px' }}>
                             <CardBody>
-                                <CardTitle className='text-muted h4'>Total New Cases Today</CardTitle>
+                                <CardTitle className='text-muted h5'>Total New Cases Today</CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
+                                    {this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
                                         (<Spinner />) : (
                                             <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_new_cases_today} separator=',' />
+                                                end={this.props.data.globalData[0].NewConfirmed} separator=',' />
                                         )}
                                 </CardSubtitle>
-                                <CardText>Total number of cases  COVID-19.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Total number of cases  COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
 
                     </Col>
-                    <Col md='4'>
+                    <Col lg='4'>
 
-                        <Card style={{ borderBottomColor: 'rgb(240, 173, 78)', borderBottomWidth: 5 }}>
+                        <Card style={{ borderBottomColor: 'rgb(240, 173, 78)', borderBottomWidth: 5, height: '200px' }}>
                             <CardBody>
-                                <CardTitle className='text-muted h4'>Total New Deaths Today</CardTitle>
+                                <CardTitle className='text-muted h5'>Total New Deaths Today</CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
+                                    {this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
                                         (<Spinner />) : (
                                             <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_new_deaths_today} separator=',' />
+                                                end={this.props.data.globalData[0].NewDeaths} separator=',' />
                                         )}
                                 </CardSubtitle>
-                                <CardText>Total number of total deaths from COVID-19.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Total number of new deaths from COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
 
                     </Col>
-                    <Col md='4'>
+                    <Col lg='4'>
 
                         <Card style={{
-                            borderBottomColor: 'rgb(91, 192, 222)', borderBottomWidth: 5
+                            borderBottomColor: 'rgb(91, 192, 222)', borderBottomWidth: 5, height: '200px'
                         }}>
                             <CardBody>
-                                < CardTitle className='text-muted h4'>Total Affected Countries</CardTitle>
+                                < CardTitle className='text-muted h5'>Total New Recoveries Today </CardTitle>
                                 <CardSubtitle className='font-weight-bold h3'>
-                                    {this.props.data.globalData.length === 0 ?
+                                    {this.props.data.globalData.length === 0 || this.props.data.globalDataLoading ?
                                         (<Spinner />) : (
                                             <CountUp start={0}
-                                                end={this.props.data.globalData.results[0].total_affected_countries} separator=',' />
+                                                end={this.props.data.globalData[0].NewRecovered} separator=',' />
                                         )}
                                 </CardSubtitle>
-                                <CardText>Number of affected countries today.</CardText>
+                                <CardText className='pt-3' style={{ fontSize: '14' }}>Total number of new recoveries from COVID-19.</CardText>
 
                             </CardBody>
                         </Card>
