@@ -3,4 +3,7 @@ export const GLOBAL_DATA_LOADING = 'GLOBAL_DATA_LOADING'
 export const DAILY_DATA_LOADING = 'DAILY_DATA_LOADING'
 export const UPDATE_DATA = 'UPDATE_DATA'
 export const DAILY_DATA_RECEIVED = 'DAILY_DATA_RECEIVED'
-
+export const SET_GENDER = 'SET_GENDER'
+export const SET_AGE = 'SET_AGE'
+export const SET_QUESTIONS = 'SET_QUESTIONS'
+export const LOADING = 'LOADING'

@@ -26,22 +26,20 @@ export default function (state = initialState, action) {
             }
         case UPDATE_DATA:
 
-            for (let i = 0; i < state.countries.length; i++) {
-                if (state.countries[i].Country === action.payload) {
-                    return {
-                        ...state,
-                        from: action.payload,
-                        globalData: [state.countries[i]],
-                        globalDataLoading: false
-
-                    }
-                }
+            return {
+                ...state,
+                from: action.payload,
+                globalData: state.countries.filter(country => country.Country === action.payload),
+                globalDataLoading: false
             }
+
+
         case DAILY_DATA_LOADING:
             return {
                 ...state,
                 dailyDataLoading: true
             }
+
         case DAILY_DATA_RECEIVED:
             return {
                 ...state,

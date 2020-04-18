@@ -4,6 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainPage from './Components/MainPage';
 import { getGlobalData } from './actions/getData'
 import { connect } from 'react-redux'
+import NavBar from './Components/LayOut/NavBar'
+import Footer from './Components/LayOut/Footer'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import SymptomChecker from './Components/SymptomChecker';
 
 
 class App extends Component {
@@ -14,7 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <MainPage />
+        <NavBar />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={MainPage} />
+            <Route exact path='/symptomchecker' component={SymptomChecker} />
+          </Switch>
+        </BrowserRouter>
+        {/* <MainPage /> */}
+        <Footer />
+
       </div>
 
 

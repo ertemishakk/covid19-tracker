@@ -9,7 +9,7 @@ class Title extends Component {
         let date = new Date()
         return (
             <div>
-                <Row className='text-dark'>
+                <Row className='text-dark pt-4'>
                     <Col>
                         <h1 className='text-center pt-5 display-2 font-weight-bold'>
                             C<span>

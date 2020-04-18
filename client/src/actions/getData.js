@@ -21,6 +21,8 @@ export const countrySelected = (country) => dispatch => {
     if (country !== 'global') {
         dispatch({
             type: GLOBAL_DATA_LOADING,
+        })
+        dispatch({
             type: DAILY_DATA_LOADING
         })
         dispatch({

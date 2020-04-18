@@ -5,12 +5,10 @@ import {
     CardTitle, CardSubtitle,
 } from 'reactstrap'
 import { connect } from 'react-redux'
-import Spinner from './Spinner'
+import Spinner from '../Spinner'
 class Cards extends Component {
 
     render() {
-        let date = new Date()
-
         return (
             <div>
                 <Row className='pt-4' style={{ paddingRight: '15%', paddingLeft: '15%' }}>

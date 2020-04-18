@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Form, Input, Container } from 'reactstrap'
 import { connect } from 'react-redux'
-import { countrySelected } from '../actions/getData'
+import { countrySelected } from '../../actions/getData'
 
 class SelectCountry extends Component {
     state = {

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Title from './Title'
-import Cards from './Cards'
-import SelectCountry from './SelectCountry'
-import Graphs from './Graphs'
-// import Footer from './Footer'
+import Title from './WorldData/Title'
+import Cards from './WorldData/Cards'
+import SelectCountry from './WorldData/SelectCountry'
+import Graphs from './WorldData/Graphs'
 
 export default class MainPage extends Component {
     render() {
@@ -13,7 +12,6 @@ export default class MainPage extends Component {
                 <Cards />
                 <SelectCountry />
                 <Graphs />
-                {/* <Footer /> */}
             </div>
         )
     }

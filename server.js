@@ -21,10 +21,16 @@ app.get('/getall', (req, res) => {
 })
 
 app.post('/getdaily/:country', (req, res) => {
-
-    axios.get(`https://api.covid19api.com/dayone/country/${req.params.country}`)
+    axios.get(`https://api.covid19api.com/total/dayone/country/${req.params.country}`)
         .then(data => res.json(data.data))
         .catch(err => console.log(err))
+
+})
+
+app.post('/symptoms', (req, res) => {
+
+    console.log(req.body)
+
 
 })
 
