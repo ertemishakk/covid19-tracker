@@ -26,8 +26,13 @@ app.get('/getall', (req, res) => {
 })
 
 app.post('/getdaily/:country', (req, res) => {
+    console.log('api called')
     axios.get(`https://api.covid19api.com/total/dayone/country/${req.params.country}`)
-        .then(data => res.json(data.data))
+        .then(data => {
+            console.log(data)
+            res.json(data.data)
+        }
+        )
         .catch(err => console.log(err))
 
 })
