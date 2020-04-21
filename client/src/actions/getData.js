@@ -14,6 +14,7 @@ export const getGlobalData = () => dispatch => {
                 payload: res.data
             })
         ))
+        .catch(err => console.log(err))
 
 }
 
