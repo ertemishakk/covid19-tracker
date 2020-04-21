@@ -37,7 +37,7 @@ class Footer extends Component {
                         <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                             <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
                             <p>
-                                <i className="fas fa-home mr-3 text-dark"></i> 172 Hilton Street Glenroy 3046</p>
+                                <i className="fas fa-home mr-3 text-dark"></i> 290 South Street Glenroy 3046</p>
                             <p>
                                 <i className="fas fa-envelope mr-3 text-dark"></i> admin@covid19.com.au</p>
                             <p>
