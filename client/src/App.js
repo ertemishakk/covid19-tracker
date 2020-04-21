@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainPage from './Components/MainPage';
-import { getGlobalData } from './actions/getData'
-import { connect } from 'react-redux'
+
 import NavBar from './Components/LayOut/NavBar'
 import Footer from './Components/LayOut/Footer'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -13,9 +12,7 @@ import About from './Components/About';
 
 
 class App extends Component {
-  componentDidMount() {
-    this.props.getGlobalData()
-  }
+
 
   render() {
     return (
@@ -38,9 +35,6 @@ class App extends Component {
     )
   }
 }
-const mapStateToProps = state => ({
-  data: state.data
-})
 
 
-export default connect(mapStateToProps, { getGlobalData })(App)
+export default App
