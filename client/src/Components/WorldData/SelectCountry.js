@@ -16,7 +16,6 @@ class SelectCountry extends Component {
 
     }
     render() {
-        console.log(this.state)
         return (
             <div>
                 <Row className='pt-4' style={{ paddingRight: '15%', paddingLeft: '15%' }}>
