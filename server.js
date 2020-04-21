@@ -4,6 +4,10 @@ const cors = require('cors')
 app.use(express.json({ extended: false }))
 app.use(cors())
 const axios = require('axios')
+const keys = require('./config/keys_dev')
+const validateForm = require('./validateForm')
+const sgMail = require('@sendgrid/mail');
+
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
@@ -29,9 +33,65 @@ app.post('/getdaily/:country', (req, res) => {
 
 app.post('/symptoms', (req, res) => {
 
-    console.log(req.body)
+    var age = req.body.age
+    var sex = req.body.sex
+    var evidence = []
+    if (req.body.evidence) {
+        evidence = req.body.evidence
+    }
+
+    let axiosHeaders = {
+        headers: {
+            'App_Id': keys.infermedica_app_id,
+            'App-Key': keys.infermedica_app_key,
+            'Content-Type': 'application/json'
+        }
+    }
+
+    var dataString = {
+        sex,
+        age,
+        evidence
+    }
+
+    axios.post('https://api.infermedica.com/covid19/diagnosis', dataString, axiosHeaders)
+        .then(data => {
+            if (data.data.should_stop === false) {
+                res.json(data.data)
+            } else {
+
+                axios.post('https://api.infermedica.com/covid19/triage', dataString, axiosHeaders)
+                    .then(data => {
+
+                        res.json(data.data)
+                    })
+                    .catch(err => console.log(err))
+            }
+        })
+        .catch(err => console.log(err))
+
+})
 
 
+app.post('/contact', (req, res) => {
+    const { errors, isValid } = validateForm(req.body)
+
+    if (!isValid) {
+        return res.status(400).json(errors)
+    }
+
+    sgMail.setApiKey(keys.sendGridAPI)
+
+    const msg = {
+        to: 'ertemishakk@gmail.com',
+        from: req.body.email,
+        subject: req.body.name + ' has sent you a message with subject: ' + req.body.subject,
+        html: `<strong>` + req.body.message + `</strong>`,
+    }
+
+    sgMail.send(msg)
+
+    res.json({ success: 'Your message has been sent.' })
 })
 
 

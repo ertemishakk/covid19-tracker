@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Card, CardTitle, CardFooter, Button, CardBody } from 'reactstrap'
-import { connect } from 'react-redux'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
-import { setAge } from '../../actions/symptomData'
+import { fetchData, setAge } from '../../actions/symptomData'
+import { connect } from 'react-redux'
+
 
 class StepThree extends Component {
     state = {
-        value: 70,
+        value: this.props.data.age,
     }
     handleOnChange = (value) => {
         this.setState({
@@ -16,19 +17,37 @@ class StepThree extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.data.question !== prevProps.data.question) {
-            this.props.nextStep()
+        if (this.props.data.pages !== prevProps.data.pages) {
+            // this.props.nextStep()
         }
     }
 
     evaluateAnswers = (e) => {
-        this.props.setAge(this.state.value, this.props.data.sex)
+        let data = {
+            sex: this.props.data.sex,
+            age: this.state.value
+        }
+
+        if (this.props.data.stopFetching) {
+            if (this.props.data.age === this.state.value) {
+                this.props.nextStep()
+            }
+            else {
+                this.props.setAge(this.state.value)
+                this.props.fetchData(data)
+            }
+        } else {
+            this.props.setAge(this.state.value)
+            this.props.fetchData(data)
+        }
     }
 
     render() {
         const labels = { 18: '18', 122: '122' }
+
         return (
             <div>
+
                 <Card className='pt-5 border-0'>
                     <CardTitle className='h4 font-weight-bold mb-5 '>
                         What is your age?
@@ -67,4 +86,4 @@ const mapStateToProps = state => ({
     data: state.symptomData
 })
 
-export default connect(mapStateToProps, { setAge })(StepThree)
+export default connect(mapStateToProps, { fetchData, setAge })(StepThree)

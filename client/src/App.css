@@ -11,3 +11,7 @@ body{
 .rangeslider-horizontal .rangeslider__fill {
   background-color:rgb(52, 206, 211) !important;
 }
+._loading_overlay_spinner{
+  color:rgb(52, 206, 211)
+
+}

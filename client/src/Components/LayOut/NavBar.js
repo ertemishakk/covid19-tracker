@@ -115,7 +115,7 @@ class NavBar extends Component {
                                         this.toggle();
                                     }}
                                     className='text-dark '
-                                    href='#'
+                                    href='media'
                                 >
                                     MEDIA & NEWS
                                     </NavLink>
@@ -126,7 +126,7 @@ class NavBar extends Component {
                                         this.toggle();
                                     }}
                                     className='text-dark '
-                                    href='#'
+                                    href='/about'
                                 >
                                     ABOUT
                                     </NavLink>
