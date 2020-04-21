@@ -20,7 +20,11 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/getall', (req, res) => {
 
     axios.get('https://api.covid19api.com/summary')
-        .then(data => res.json(data.data))
+        .then(data => {
+            console.log(data)
+            res.json(data.data)
+        }
+        )
         .catch(err => console.log(err))
 
 })
