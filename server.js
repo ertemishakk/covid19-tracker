@@ -10,21 +10,12 @@ const sgMail = require('@sendgrid/mail');
 var path = require('path');
 
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
+
 
 app.get('/getall', (req, res) => {
 
     axios.get('https://api.covid19api.com/summary')
-        .then(data => {
-            console.log(data)
-            res.json(data.data)
-        }
-        )
+        .then(data => res.json(data.data))
         .catch(err => console.log(err))
 
 })
@@ -32,11 +23,7 @@ app.get('/getall', (req, res) => {
 app.post('/getdaily/:country', (req, res) => {
     console.log('api called')
     axios.get(`https://api.covid19api.com/total/dayone/country/${req.params.country}`)
-        .then(data => {
-            console.log(data)
-            res.json(data.data)
-        }
-        )
+        .then(data => res.json(data.data))
         .catch(err => console.log(err))
 
 })
@@ -109,3 +96,10 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
