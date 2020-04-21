@@ -23,10 +23,10 @@ class Footer extends Component {
                         <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                             <h6 className="text-uppercase mb-4 font-weight-bold">Useful links</h6>
                             <p>
-                                <a href="/" className='text-dark'>Media & News</a>
+                                <a href="/media" className='text-dark'>Media & News</a>
                             </p>
                             <p>
-                                <a href="/" className='text-dark'>About</a>
+                                <a href="/about" className='text-dark'>About</a>
                             </p>
                         </div>
 
@@ -62,22 +62,22 @@ class Footer extends Component {
                             <div className="text-center ">
                                 <ul className="list-unstyled list-inline">
                                     <li className="list-inline-item">
-                                        <a href="https://npa.com.au/" className="btn-floating btn-sm rgba-white-sdark mx-1">
+                                        <a href="/" className="btn-floating btn-sm rgba-white-sdark mx-1">
                                             <i className="fab fa-facebook-f text-dark"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://npa.com.au/" className="btn-floating btn-sm rgba-white-sdark mx-1">
+                                        <a href="/" className="btn-floating btn-sm rgba-white-sdark mx-1">
                                             <i className="fab fa-twitter text-dark"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://npa.com.au/" className="btn-floating btn-sm rgba-white-sdark mx-1">
+                                        <a href="/" className="btn-floating btn-sm rgba-white-sdark mx-1">
                                             <i className="fab fa-google-plus-g text-dark"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://npa.com.au/" className="btn-floating btn-sm rgba-white-sdark mx-1">
+                                        <a href="/" className="btn-floating btn-sm rgba-white-sdark mx-1">
                                             <i className="fab fa-linkedin-in text-dark"></i>
                                         </a>
                                     </li>
