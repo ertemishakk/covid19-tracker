@@ -7,4 +7,4 @@
 
 # Start this repo
 
-### If you find this repo helpful, dont forget to start it as a thank you !
+### If you find this repo helpful, please dont forget to star it as a thank you !
