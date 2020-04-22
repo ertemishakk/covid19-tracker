@@ -1,4 +1,5 @@
 # covid19-tracker
+ ![](readme.gif)
 
 # [LIVE DEMO](https://symptomcovid.herokuapp.com/)
 
