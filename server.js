@@ -10,10 +10,20 @@ const sgMail = require('@sendgrid/mail');
 var path = require('path');
 
 
+app.get('/getCountriesData', (req, res) => {
+    axios.get('https://corona.lmao.ninja/v2/countries?yesterday&sort')
+        .then(response => {
+            res.json(response.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
+
 
 
 app.get('/getall', (req, res) => {
-
     axios.get('https://api.covid19api.com/summary')
         .then(data => res.json(data.data))
         .catch(err => console.log(err))
@@ -21,9 +31,11 @@ app.get('/getall', (req, res) => {
 })
 
 app.post('/getdaily/:country', (req, res) => {
-    console.log('api called')
     axios.get(`https://api.covid19api.com/total/dayone/country/${req.params.country}`)
-        .then(data => res.json(data.data))
+        .then(data => {
+            console.log(data.data)
+            res.json(data.data)
+        })
         .catch(err => console.log(err))
 
 })
@@ -67,6 +79,14 @@ app.post('/symptoms', (req, res) => {
         })
         .catch(err => console.log(err))
 
+})
+
+app.get('/news', (req, res) => {
+    axios.get(`https://newsapi.org/v2/everything?q=coronavirus&apiKey=${keys.newsAPI}`)
+        .then(response => {
+            res.json(response.data.articles)
+        })
+        .catch(err => console.log(err))
 })
 
 

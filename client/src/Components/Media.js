@@ -16,10 +16,10 @@ class Media extends Component {
         this.setState({
             fetching: true
         })
-        Axios.get(`https://newsapi.org/v2/everything?q=coronavirus&apiKey=${process.env.REACT_APP_NEWS_KEY}`)
+        Axios.get(`/news`)
             .then(res => {
                 this.setState({
-                    news: res.data.articles,
+                    news: res.data,
                     fetching: false
                 })
             })

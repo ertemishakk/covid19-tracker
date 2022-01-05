@@ -5,6 +5,8 @@ import SelectCountry from './WorldData/SelectCountry'
 import Graphs from './WorldData/Graphs'
 import { getGlobalData } from '../actions/getData'
 import { connect } from 'react-redux'
+import Map from './WorldData/Map'
+import { Row, Col } from 'reactstrap'
 
 class MainPage extends Component {
     componentDidMount() {
@@ -15,10 +17,22 @@ class MainPage extends Component {
         return (
             <div>
                 <Title />
+                <Map />
+
                 <Cards />
+
                 <SelectCountry />
-                <Graphs />
-            </div>
+                <div className='container'>
+                    <Row>
+                        <Col>
+                            <Graphs />
+
+                        </Col>
+                    </Row>
+                </div>
+
+
+            </div >
         )
     }
 }

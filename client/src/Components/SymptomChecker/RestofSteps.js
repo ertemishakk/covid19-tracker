@@ -212,7 +212,6 @@ class RestofSteps extends Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 {this.props.data.response.length === 0 && this.props.data.questions.type === 'group_multiple' && (
