@@ -26,7 +26,6 @@ class Media extends Component {
 
     }
     render() {
-        console.log(process.env)
         return (
             <div className='container'>
                 <div className='row justify-content-center'>

@@ -16,21 +16,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" >
-        <NavBar />
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/' component={MainPage} />
-            <Route exact path='/symptomchecker' component={SymptomChecker} />
-            <Route exact path='/media' component={Media} />
-            <Route exact path='/about' component={About} />
+      <div className=" site overflow-hidden">
+        <div className='site-content'>        <NavBar />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path='/' component={MainPage} />
+              <Route exact path='/symptomchecker' component={SymptomChecker} />
+              <Route exact path='/media' component={Media} />
+              <Route exact path='/about' component={About} />
 
-          </Switch>
-        </BrowserRouter>
+            </Switch>
+          </BrowserRouter>
+        </div>
         <Footer />
-
       </div>
-
 
     )
   }

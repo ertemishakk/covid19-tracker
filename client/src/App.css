@@ -15,3 +15,13 @@ body{
   color:rgb(52, 206, 211)
 
 }
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
