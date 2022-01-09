@@ -43,7 +43,9 @@ class Map extends Component {
     handleToolTip = (event, label, code) => {
 
         if (!this.props.data.globalDataLoading) {
-            let country = this.state.resData.filter(data => data.countryInfo.iso2 === 'AU')
+
+
+            let country = this.state.resData.filter(data => data.countryInfo.iso2 === code)
 
             if (this.state.mapData[code]) {
                 label.html(
