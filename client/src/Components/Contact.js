@@ -44,8 +44,8 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div className='bg-dark py-4' id='contact'>
-                <Container className='text-light py-5'>
+            <div className=' py-4' id='contact'>
+                <Container className=' py-5 '>
                     <Slide right>
                         <h1 className='text-center'>Have a question? </h1>
                         <Row>
@@ -99,7 +99,7 @@ class Contact extends Component {
 
                                     }
                                     <FormGroup>
-                                        <Input type='submit' className='bg-success border-0 text-light' value='Send' />
+                                        <Input type='submit' className='bg-success border-0 ' value='Send' />
                                     </FormGroup>
                                 </Form>
                             </Col>
